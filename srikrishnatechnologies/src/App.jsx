@@ -4,7 +4,38 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-scroll";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminPage from "./customer/AdminPage";
-
+import Card from "./component/Card";
+import "./App.css"
+const reasons = [
+  {
+    id: 1,
+    title: "Expert Instructors",
+    description:
+      "Learn from industry professionals with years of experience in their respective fields.",
+    icon: "🎓",
+  },
+  {
+    id: 2,
+    title: "Flexible Learning",
+    description:
+      "Access courses anytime, anywhere, and learn at your own pace with lifetime access.",
+    icon: "⌛",
+  },
+  {
+    id: 3,
+    title: "Community Support",
+    description:
+      "Join a community of learners to collaborate, share insights, and grow together.",
+    icon: "🤝",
+  },
+  {
+    id: 4,
+    title: "Career Opportunities",
+    description:
+      "Gain skills that employers value and increase your chances of landing your dream job.",
+    icon: "🚀",
+  },
+];
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,11 +48,24 @@ function App() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
-  const [courses, setCourses] = useState([
-    { id: 1, name: "Web Development", description: "Learn HTML, CSS, JavaScript, and more to build modern websites." },
-    { id: 2, name: "Data Science", description: "Dive into Python, Machine Learning, and data analysis techniques." },
-    { id: 3, name: "Cyber Security", description: "Master ethical hacking and information security fundamentals." },
-  ]);
+  const courses = [
+    {
+      image: "https://www.sectorlink.com/img/blog/web-devel-important.jpg", // Image URL for Web Development course
+      name: "Web Development",
+      description: "Learn HTML, CSS, JavaScript, and more to build modern websites.",
+    },
+    {
+      image: "https://www.oxfordinstitute.in/img/data-science-course.jpg", // Image URL for Data Science course
+      name: "Data Science",
+      description: "Dive into Python, Machine Learning, and data analysis techniques.",
+    },
+    {
+      image: "https://media.istockphoto.com/id/1412282189/photo/lock-network-technology-concept.jpg?s=612x612&w=0&k=20&c=hripuxLs9pS_7Ln6YWQR-Ow2_-BU5RdQ4vOY8s1q1iQ=", // Image URL for Cyber Security course
+      name: "Cyber Security",
+      description: "Master ethical hacking and information security fundamentals.",
+    },
+  ]
+
 
   // Authentication state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -55,7 +99,7 @@ function App() {
 
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
-    if (password === "srikrishna@admin#2024#courses") { 
+    if (password === "srikrishna@admin#2024#courses") {
       setIsAuthenticated(true);
     } else {
       toast.error("Incorrect password. Please try again.");
@@ -99,6 +143,16 @@ function App() {
       behavior: "smooth",
     });
   };
+
+  // why us
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % reasons.length);
+    }, 3000); // Slide changes every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Router>
@@ -152,22 +206,22 @@ function App() {
         </section>
 
         {/* Courses Section */}
-        <section id="courses" className="py-20">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">Our Courses</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {courses.map((course) => (
-                <div key={course.id} className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold mb-4">{course.name}</h3>
-                  <p className="text-gray-700 mb-4">{course.description}</p>
-                  <button onClick={() => toast.info('Fill the contact us page to enroll!')} className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600">
-                    Enroll Now
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+<div id="courses"><h2 className="text-4xl font-bold text-gray-800 mb-8 text-center pt-6">
+              Our Courses
+            </h2>
+        <div className="container12 h-auto gap-20">
+        
+          {courses.map((course) => (
+            <Card
+              key={course.id}
+              image={course.image} // Use placeholder or a custom image
+              header={course.name}
+              content={course.description}
+            />
+          ))}
+        </div>
+        </div>
+
 
         {/* Admin Page */}
         <Routes>
@@ -207,6 +261,38 @@ function App() {
             </p>
           </div>
         </section>
+        {/* why Us */}
+
+        <section id="why-us" className="py-20">
+          <div className="container mx-auto text-center">
+            <h2 className="text-4xl font-bold text-gray-800 mb-8">
+              Why Choose Us?
+            </h2>
+            <div className="relative bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto overflow-hidden">
+              <div
+                key={reasons[currentIndex].id}
+                className="animate-slideIn transition-opacity duration-500 ease-in-out"
+              >
+                <div className="text-6xl mb-4">{reasons[currentIndex].icon}</div>
+                <h3 className="text-2xl font-semibold mb-4">
+                  {reasons[currentIndex].title}
+                </h3>
+                <p className="text-gray-600">{reasons[currentIndex].description}</p>
+              </div>
+            </div>
+            <div className="flex justify-center mt-6 space-x-2">
+              {reasons.map((_, index) => (
+                <span
+                  key={index}
+                  className={`w-3 h-3 rounded-full ${index === currentIndex
+                      ? "bg-blue-500"
+                      : "bg-gray-300"
+                    } transition duration-300`}
+                ></span>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Contact Section */}
         <section id="contact" className="py-20">
@@ -239,6 +325,103 @@ function App() {
             </form>
           </div>
         </section>
+        {/* footer */}
+
+        <footer className="bg-gray-900 text-gray-400 py-10">
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Contact Information */}
+            <div>
+              <h3 className="text-white text-lg font-semibold mb-4">Contact Us</h3>
+              <p className="text-sm">
+                📍 5-11-116, Rohini Appt, Opp, Apex Building, 2/3, Brodipet, Guntur.
+              </p>
+              <p className="text-sm mt-2">📧 srikrishnatechnologies@gmail.com</p>
+              <p className="text-sm mt-2">📞 +91 9848673539</p>
+              <p className="text-sm mt-2">📞 +91 9491461500</p>
+            </div>
+
+            {/* Navigation Links */}
+            <div>
+              <h3 className="text-white text-lg font-semibold mb-4">Navigation</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="home" smooth={true} duration={500} className="hover:text-white">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="about" smooth={true} duration={500} className="hover:text-white">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                <Link to="courses" smooth={true} duration={500} className="hover:text-white">
+                  Courses
+                </Link>
+                </li>
+                <li>
+                  <Link to="contact" smooth={true} duration={500} className="hover:text-white">
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Social Media */}
+            <div>
+              <h3 className="text-white text-lg font-semibold mb-4">Follow Us</h3>
+              <div className="flex space-x-4">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-500"
+                >
+                  <i className="fab fa-facebook-f">Facebook</i>
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400"
+                >
+                  <i className="fab fa-twitter">Twitter</i>
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600"
+                >
+                  <i className="fab fa-linkedin-in">LinkedIn</i>
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-500"
+                >
+                  <i className="fab fa-instagram">Instagram</i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="mt-8 border-t border-gray-700 pt-4 text-center">
+            <p className="text-sm">
+              &copy; {new Date().getFullYear()} Sri Krishna Technologies. All rights reserved.
+            </p>
+            <div className="flex justify-center mt-2 space-x-4 text-sm">
+              <a href="/privacy-policy" className="hover:text-white">
+                Privacy Policy
+              </a>
+              <a href="/terms-of-service" className="hover:text-white">
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </footer>
 
         {/* Back to Top Button */}
         {showScrollToTop && (
