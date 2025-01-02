@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 40px 80px;
+  padding: 40px 40px;
  }
   
  .title {
@@ -143,3 +143,53 @@ body {
     background-color: #07b3e7;
     transform: scale(1.05);
 }
+
+
+/* slider */
+
+
+.slider-wrapper {
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slider img {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0.5rem;
+  }
+  
+  .slider-nav button {
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+  }
+  
+  .slider-nav button:hover {
+    background-color: #2563eb; /* Tailwind's blue-600 */
+  }
+  @keyframes popIn {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .bg-animated {
+    background-size: 200% 200%;
+    animation: gradientBG 10s ease infinite;
+  }
+  

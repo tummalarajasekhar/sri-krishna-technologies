@@ -2,16 +2,20 @@ import React, { useRef, useState, useEffect } from "react";
 import "../App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-scroll";
 
-const Card = ({ image, header, content }) => {
+const Card = ({ image, header, content ,formData}) => {
   const cardRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  // const navigate = useNavigate();
   const handleEnrollClick = () => {
     toast.info('Fill the contact us page to enroll!')
+    formData.enroll=header
+    
   };
-
+ 
   useEffect(() => {
     // Set card dimensions for calculations
     if (cardRef.current) {
@@ -68,10 +72,11 @@ const Card = ({ image, header, content }) => {
         ></div>
         <div className={`card-info ${isHovering ? "show" : ""}`}>
           <h1>{header}</h1>
-          <p>{content}</p>
-          <button className="enroll-button" onClick={handleEnrollClick} >
+          <p className="pb-1">{content}</p>
+          <Link to='contact' smooth={true} duration={500} className="enroll-button" onClick={handleEnrollClick} >
             Enroll Now
-          </button>
+            </Link> 
+          
         </div>
       </div>
     </div>
