@@ -9,6 +9,7 @@ import logo from "./assets/skt.png"
 import 'animate.css'
 import "./App.css"
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { useNavigate} from 'react-router-dom'
 
 const reasons = [
   {
@@ -40,7 +41,19 @@ const reasons = [
     icon: "🚀",
   },
 ];
+
 function App() {
+  const navigate=useNavigate()
+
+const privacypolicy=()=>{
+navigate("/privacy-policy")
+
+}
+const termsofservice=()=>{
+  navigate("/terms-of-service")
+
+
+}
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -672,10 +685,10 @@ function App() {
               &copy; {new Date().getFullYear()} Sri Krishna Technologies. All rights reserved.
             </p>
             <div className="flex justify-center mt-2 space-x-4 text-sm">
-              <a href="/privacy-policy" className="hover:text-white">
+              <a href="#" onClick={privacypolicy} className="hover:text-white">
                 Privacy Policy
               </a>
-              <a href="/terms-of-service" className="hover:text-white">
+              <a onClick={termsofservice} className="hover:text-white">
                 Terms of Service
               </a>
             </div>
