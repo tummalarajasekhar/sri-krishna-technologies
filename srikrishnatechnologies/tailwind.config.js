@@ -6,6 +6,7 @@ export default {
   ],
   theme: {
     extend: {
+      
       animation: {
         fadeIn: "fadeIn 0.5s ease-in-out",
         slideIn: "slideIn 0.5s ease-in-out",

@@ -424,38 +424,69 @@ useEffect(() => {
         {/* Hero Section */}
         <section
   id="home"
-  className="relative bg-gradient-to-r from-yellow-400 via-white to-yellow-200 text-black h-screen flex flex-col items-center justify-center px-4 sm:px-8"
+  className="relative bg-gradient-to-r from-yellow-400 via-white to-yellow-200 text-black min-h-screen flex flex-col items-center justify-between px-4 sm:px-8 pt-14"
 >
   {/* Logo */}
-  <div
-    className="animate-[popIn_1s_ease-in-out] mb-8"
-    style={{ animationFillMode: "forwards" }}
-  >
+  <div className="animate-[popIn_1s_ease-in-out] " style={{ animationFillMode: "forwards" }}>
     <img
       src={logo}
       alt="Sri Krishna Technologies Logo"
-      className="w-40 sm:w-64 lg:w-80 h-auto object-contain rounded-full transform transition-transform duration-300 hover:scale-110"
+      className="w-40 sm:w-64 lg:w-80 h-auto object-contain rounded-full transform transition-transform duration-300 hover:scale-110 p-4"
     />
   </div>
 
   {/* Content */}
-  <div className="text-center space-y-6">
-    <h1 className="text-3xl sm:text-4xl font-bold animate__animated animate__fadeIn animate__delay-1s">
-      Welcome to Sri Krishna Technologies
+  <div className="text-center space-y-4">
+    {/* Welcome to */}
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold ">
+      Welcome to
     </h1>
-    <p className="text-sm p-4 sm:text-base lg:text-lg font-light animate__animated animate__fadeIn animate__delay-2s">
+
+    {/* Sri Krishna Technologies */}
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold font-mono text-red-800 typewriter mx-auto whitespace-nowrap overflow-hidden border-r-2 border-black p-2">
+      Sri Krishna Technologies
+    </h1>
+
+    {/* Description */}
+    <p className="text-sm sm:text-base lg:text-lg font-light animate-fade-in">
       Your path to learning new skills and improving your knowledge.
     </p>
-    <Link
-  to="courses"
-  smooth={true}
-  duration={500}
-  className="bg-white text-yellow-500 py-3 px-10 rounded-full font-semibold border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105 animate__animated animate__fadeIn animate__delay-3s"
-  aria-label="Explore our courses"
->
-  Explore Courses
-</Link>
+
+    {/* Key Features (visible in hero section for lg screens) */}
+    <div className="flex flex-wrap justify-center gap-8 mt-8 mb-1">
+      <div className="bg-gradient-to-r from-yellow-500 to-orange-200 p-6 rounded-xl shadow-lg text-center w-full sm:w-80 md:w-96 animate__animated animate__zoomIn animate__delay-1s">
+        <h3 className="text-xl font-semibold mb-4">Expert Courses</h3>
+        <p className="text-sm text-center">
+          Learn from experienced professionals in the field with high-quality content.
+        </p>
+      </div>
+
+      <div className="bg-gradient-to-r from-yellow-400 to-orange-200 p-6 rounded-xl shadow-lg text-center w-full sm:w-80 md:w-96 drop-down-text">
+        <h3 className="text-xl font-semibold mb-4">Learn the Latest Technologies</h3>
+        <p className="text-sm text-center">
+          Web Development, Cyber Security, Programing Languages, Graphic Design
+        </p>
+      </div>
+
+      <div className="bg-gradient-to-r from-yellow-400 to-orange-200 p-6 rounded-xl shadow-lg text-center w-full sm:w-80 md:w-96 animate__animated animate__zoomIn animate__delay-1s">
+        <h3 className="text-xl font-semibold mb-4">Interactive Learning</h3>
+        <p className="text-sm text-center">
+          Engage in hands-on projects and live interactions for better understanding.
+        </p>
+      </div>
+    </div>
   </div>
+
+  {/* Explore Courses Button */}
+  <Link
+    to="courses"
+    smooth={true}
+    duration={500}
+    className="bg-white text-yellow-500 py-4 px-6 sm:py-3 sm:px-10 rounded-full font-semibold border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mt-8"
+    aria-label="Explore our courses"
+  >
+    Explore Courses
+  </Link>
 </section>
 
 

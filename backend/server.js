@@ -50,20 +50,33 @@ app.post("/submit-form", async (req, res) => {
     // Email to User
     const userMailOptions = {
         from: "rajasekhartummala05@gmail.com", // Replace with your email
-        to: email,                    // User's email
+        to: email, // User's email
         subject: "Thank You for Reaching Out to Sri Krishna Technologies!",
-        text: `
-            Hi ${name},
-
-            Thank you for showing interest in our "${enroll}" course! 
-            We have received your request, and our team will contact you within 1 to 2 working days.
-
-            If you have any urgent queries, feel free to contact us at: 1234567891.
-
-            Best regards,
-            Sri Krishna Technologies
+        html: `
+            <div style="font-family: Arial, sans-serif; color: #333; text-align: center; padding: 20px;">
+                <img src="cid:logo" alt="Sri Krishna Technologies Logo" style="width: 150px; margin-bottom: 20px;">
+                <h2>Hi ${name},</h2>
+                <p>
+                    Thank you for showing interest in our <strong>"${enroll}"</strong> course! <br>
+                    We have received your request, and our team will contact you within 1 to 2 working days.
+                </p>
+                <p>
+                    If you have any urgent queries, feel free to contact us at: <br>
+                    <strong>+91 9491461500</strong>
+                </p>
+                <p style="margin-top: 20px;">Best regards,</p>
+                <p><strong>Sri Krishna Technologies</strong></p>
+            </div>
         `,
+        attachments: [
+            {
+                filename: "skt.png", // Your logo file
+                path: "./skt.png", // Replace with the path to your logo
+                cid: "logo", // Same as the 'cid' in the <img> tag
+            },
+        ],
     };
+    
 
     try {
         // Send email to Admin

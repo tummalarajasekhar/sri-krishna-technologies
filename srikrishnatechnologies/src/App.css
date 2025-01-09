@@ -1,3 +1,5 @@
+
+
 body {
     font-family: "Raleway", sans-serif;
     
@@ -227,4 +229,134 @@ body {
   .whatsapp-button:hover {
     background-color: #20b858;
   }
-  
+
+  /* .typewriter {
+  display : flex;
+  justify-content: center;  
+  }   */
+ 
+/* Typewriter Effect */
+.typewriter {
+    
+    font-size: 1.5rem; /* Default font size */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Prevent text wrapping */
+    border-right: 1px solid; /* Cursor effect */
+    animation: typing 3s steps(40) forwards, /* Typing effect */
+               blink 1s step-end infinite; /* Blinking cursor */
+    max-width: 100%; /* Prevent container from exceeding screen width */
+    width: 100%; /* Set container width relative to screen size */
+}
+
+/* Typing animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+/* .glitch */
+.glitch {
+  position: relative;
+  color: white;
+  font-size: 2rem;
+  animation: glitch 1s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  color: #f00;
+  clip-path: inset(0 0 50% 0);
+  animation: glitch-lines 0.5s infinite;
+}
+
+.glitch::after {
+  color: #0ff;
+  clip-path: inset(50% 0 0 0);
+  animation: glitch-lines 0.75s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(2px, -2px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-lines {
+  0%, 100% { clip-path: inset(0 0 50% 0); }
+  50% { clip-path: inset(0 0 10% 0); }
+}
+s
+/* .zoom-in */
+.zoom-in {
+  animation: zoomIn 2s ease-in-out forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Rotate */
+.rotate {
+  animation: rotateText 2s infinite linear;
+}
+
+@keyframes rotateText {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* drop down */
+.drop-down-text {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: dropDown 1s ease-in-out forwards;
+}
+
+.drop-down-text:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.drop-down-text:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.drop-down-text:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+@keyframes dropDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
