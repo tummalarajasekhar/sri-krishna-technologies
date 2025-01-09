@@ -64,6 +64,9 @@ app.post("/submit-form", async (req, res) => {
                     If you have any urgent queries, feel free to contact us at: <br>
                     <strong>+91 9491461500</strong>
                 </p>
+                 <p>
+                Need immediate assistance? <a href="https://wa.me/+919491461500?text=Hi%20there!%20I%20want%20to%20chat." target="_blank" style="color:rgb(11, 234, 108); text-decoration: none;">Click Here to Chat</a>.
+            </p>
                 <p style="margin-top: 20px;">Best regards,</p>
                 <p><strong>Sri Krishna Technologies</strong></p>
             </div>
