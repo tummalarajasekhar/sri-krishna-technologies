@@ -54,7 +54,7 @@ app.post("/submit-form", async (req, res) => {
         subject: "Thank You for Reaching Out to Sri Krishna Technologies!",
         html: `
             <div style="font-family: Arial, sans-serif; color: #333; text-align: center; padding: 20px;">
-                <img src="cid:logo" alt="Sri Krishna Technologies Logo" style="width: 150px; margin-bottom: 20px;">
+                <img src="https://ibb.co/vVx31Tv" alt="Sri Krishna Technologies Logo" style="width: 150px; margin-bottom: 20px;">
                 <h2>Hi ${name},</h2>
                 <p>
                     Thank you for showing interest in our <strong>"${enroll}"</strong> course! <br>
@@ -70,14 +70,7 @@ app.post("/submit-form", async (req, res) => {
                 <p style="margin-top: 20px;">Best regards,</p>
                 <p><strong>Sri Krishna Technologies</strong></p>
             </div>
-        `,
-        attachments: [
-            {
-                filename: "skt.png", // Your logo file
-                path: "./skt.png", // Replace with the path to your logo
-                cid: "logo", // Same as the 'cid' in the <img> tag
-            },
-        ],
+        `
     };
     
 
