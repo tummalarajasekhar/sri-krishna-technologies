@@ -54,7 +54,7 @@ app.post("/submit-form", async (req, res) => {
         subject: "Thank You for Reaching Out to Sri Krishna Technologies!",
         html: `
             <div style="font-family: Arial, sans-serif; color: #333; text-align: center; padding: 20px;">
-                <img src="https://ibb.co/vVx31Tv" alt="Sri Krishna Technologies Logo" style="width: 150px; margin-bottom: 20px;">
+                <img src="https://i.ibb.co/XjZ7XKk/skt.png" alt="Sri Krishna Technologies Logo" style="width: 150px; margin-bottom: 20px;">
                 <h2>Hi ${name},</h2>
                 <p>
                     Thank you for showing interest in our <strong>"${enroll}"</strong> course! <br>
@@ -64,13 +64,11 @@ app.post("/submit-form", async (req, res) => {
                     If you have any urgent queries, feel free to contact us at: <br>
                     <strong>+91 9491461500</strong>
                 </p>
-                 <p>
-                Need immediate assistance? <a href="https://wa.me/+919491461500?text=Hi%20there!%20I%20want%20to%20chat." target="_blank" style="color:rgb(11, 234, 108); text-decoration: none;">Click Here to Chat</a>.
-            </p>
                 <p style="margin-top: 20px;">Best regards,</p>
                 <p><strong>Sri Krishna Technologies</strong></p>
             </div>
-        `
+        `,
+       
     };
     
 
