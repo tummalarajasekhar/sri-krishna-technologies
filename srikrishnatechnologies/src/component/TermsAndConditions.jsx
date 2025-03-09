@@ -55,7 +55,7 @@ const TermsAndConditions = () => {
         <h2 className="text-2xl font-semibold">5. Intellectual Property</h2>
         <p>
           All content provided on the website, including but not limited to course
-          materials, images, and videos, is the property of [Your Company Name]
+          materials, images, and videos, is the property of Sri Krishna Technologies
           or its licensors. You may not copy, distribute, or modify any content
           without prior written consent.
         </p>
@@ -70,14 +70,12 @@ const TermsAndConditions = () => {
 
         <h2 className="text-2xl font-semibold">7. Refund Policy</h2>
         <p>
-          If you are not satisfied with the course, you may request a refund
-          within [X] days of purchase, subject to our refund policy. Please refer
-          to our Refund Policy page for more details.
+          There is no refund provided. If you want you will get a demo class of 30 min before registering.
         </p>
 
         <h2 className="text-2xl font-semibold">8. Limitation of Liability</h2>
         <p>
-          [Your Company Name] is not liable for any direct, indirect, incidental,
+          Sri Krishna Technologies is not liable for any direct, indirect, incidental,
           special, or consequential damages arising out of the use or inability
           to use the website or its services.
         </p>
@@ -91,9 +89,9 @@ const TermsAndConditions = () => {
 
         <h2 className="text-2xl font-semibold">10. Governing Law</h2>
         <p>
-          These Terms and Conditions are governed by the laws of [Your Country].
+          These Terms and Conditions are governed by the laws of India.
           Any disputes arising under these terms shall be resolved in the courts
-          located in [Your City/State].
+          located in Andhra Pradesh.
         </p>
 
         <h2 className="text-2xl font-semibold">11. Contact Information</h2>
