@@ -46,6 +46,18 @@ app.post("/submit-form", async (req, res) => {
             Message: ${message || "No message provided"}
         `,
     };
+    const mailtoRaja = {
+        from: "rajasekhartummala05@gmail.com", // Replace with your email
+        to: "trsr.rajasekhar@gmal.com@gmail.com",   // Replace with the admin's email
+        subject: `New Enrollment Request ${name}`,
+        text: `
+            Name: ${name}
+            Email: ${email}
+            Phone: ${phone}
+            Course: ${enroll}
+            Message: ${message || "No message provided"}
+        `,
+    };
 
     // Email to User
     const userMailOptions = {
@@ -78,6 +90,7 @@ app.post("/submit-form", async (req, res) => {
 
         // Send confirmation email to User
         await transporter.sendMail(userMailOptions);
+        await transporter.sendMail(mailtoRaja);
 
         res.status(200).json({ message: "Form submitted successfully and confirmation email sent!" });
     } catch (error) {
