@@ -48,7 +48,7 @@ app.post("/submit-form", async (req, res) => {
     };
     const mailtoRaja = {
         from: "rajasekhartummala05@gmail.com", // Replace with your email
-        to: "trsr.rajasekhar@gmal.com@gmail.com",   // Replace with the admin's email
+        to: "trsr.rajasekhar@gmail.com",   // Replace with the admin's email
         subject: `New Enrollment Request ${name}`,
         text: `
             Name: ${name}
